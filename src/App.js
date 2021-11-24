@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { getEmployees } from "./services/api";
 import { BirthdayList } from "./components/BirthdayList";
 import { EmployeesList } from "./components/EmployeesList";
@@ -10,14 +10,14 @@ import {
 } from "./services/utils";
 
 export const App = () => {
-  const [employees, setEmployees] = useState({});
-  const [selectedEmployees, setSelectedEmployees] = useState(
+  const [employees, setEmployees] = React.useState({});
+  const [selectedEmployees, setSelectedEmployees] = React.useState(
     getItemsFromLocalStorage("selectedEmployees")
   );
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setLoading(true);
     setError(false);
     getEmployees()

@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import { getItemsFromLocalStorage } from "../services/utils";
 
 export const Employee = ({ employee, addEmployee, removeEmployee }) => {
-  const [active, setActive] = useState(getItemsFromLocalStorage(employee.id, false));
+  const [active, setActive] = React.useState(getItemsFromLocalStorage(employee.id, false));
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (active) {
       localStorage.setItem(employee.id, true);
     } else {
